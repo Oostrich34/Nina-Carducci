@@ -73,6 +73,10 @@ nav a {
 	width: 100%;
 }
 
+.visually-hidden {
+	background-color: #000;
+}
+
 #about-me {
 	flex: 2
 }
@@ -108,7 +112,7 @@ nav a {
 .nav-pills .nav-link.active, 
 .nav-pills .show > .nav-link {
 	color: #fff;
-	background-color: #BEB45A;
+	background-color: #1C6474;
 	border-radius:0 ;
 }
 
