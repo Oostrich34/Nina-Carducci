@@ -2,10 +2,12 @@ body {
 	max-width: 1920px;
 	margin: auto;
 }
+
 * {
 	font-family: 'Inter';
 	font-style: normal;
 }
+
 header {
 	background-color: white;
 	position: sticky;
@@ -103,7 +105,8 @@ nav a {
 	justify-content: center;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+.nav-pills .nav-link.active, 
+.nav-pills .show > .nav-link {
 	color: #fff;
 	background-color: #BEB45A;
 	border-radius:0 ;
@@ -134,7 +137,8 @@ nav a {
 	padding: .5em;
 }
 
-.mg-prev, .mg-next {
+.mg-prev, 
+.mg-next {
 	width: 30px;
 	height: 30px;
 	border-radius: 00%;
