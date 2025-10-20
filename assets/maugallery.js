@@ -145,18 +145,13 @@
           }
         });
       }
-      let index = 0,
-        next = null;
 
-      $(imagesCollection).each(function(i) {
-        if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i;
-        }
-      });
-      next =
-        imagesCollection[index] ||
-        imagesCollection[imagesCollection.length - 1];
-      $(".lightboxImage").attr("src", $(next).attr("src"));
+      let index = imagesCollection.findIndex(img => img.attr("src") === activeImage.attr("src"));
+      if (index === -1) return;
+
+      // Correction : aller à l’image précédente (avec boucle en fin de tableau)
+      let prevIndex = (index - 1 + imagesCollection.length) % imagesCollection.length;
+      $(".lightboxImage").attr("src", imagesCollection[prevIndex].attr("src"));
     },
     nextImage() {
       let activeImage = null;
@@ -184,16 +179,12 @@
           }
         });
       }
-      let index = 0,
-        next = null;
+      let index = imagesCollection.findIndex(img => img.attr("src") === activeImage.attr("src"));
+      if (index === -1) return;
 
-      $(imagesCollection).each(function(i) {
-        if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i;
-        }
-      });
-      next = imagesCollection[index] || imagesCollection[0];
-      $(".lightboxImage").attr("src", $(next).attr("src"));
+      // Correction : aller à l’image suivante (avec boucle en début de tableau)
+      let nextIndex = (index + 1) % imagesCollection.length;
+      $(".lightboxImage").attr("src", imagesCollection[nextIndex].attr("src"));
     },
     createLightBox(gallery, lightboxId, navigation) {
       gallery.append(`<div class="modal fade" id="${
@@ -205,13 +196,13 @@
                             ${
                               navigation
                                 ? '<div class="mg-prev" style="cursor:pointer;position:absolute;top:50%;left:-15px;background:white;"><</div>'
-                                : '<span style="display:none;" />'
+                                : '<span style="display:none;"></span>'
                             }
                             <img class="lightboxImage img-fluid" alt="Contenu de l'image affichée dans la modale au clique"/>
                             ${
                               navigation
-                                ? '<div class="mg-next" style="cursor:pointer;position:absolute;top:50%;right:-15px;background:white;}">></div>'
-                                : '<span style="display:none;" />'
+                                ? '<div class="mg-next" style="cursor:pointer;position:absolute;top:50%;right:-15px;background:white;">></div>'
+                                : '<span style="display:none;"></span>'
                             }
                         </div>
                     </div>
