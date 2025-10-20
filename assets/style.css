@@ -109,7 +109,7 @@ nav a {
 	justify-content: center;
 }
 
-.nav-pills .nav-link.active, 
+.nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
 	color: #fff;
 	background-color: #1C6474;
@@ -145,7 +145,6 @@ nav a {
 .mg-next {
 	width: 30px;
 	height: 30px;
-	border-radius: 100%;
 	justify-content: center;
 	align-items: center;
 	display: flex;
